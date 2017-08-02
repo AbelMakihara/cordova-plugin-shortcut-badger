@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-shortcut-badger"
+    version="0.0.1">
+    <name>ShortcutBadger</name>
+    <description>Cordova Shortcut Badger Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,shortcut,badger</keywords>
+    <js-module name="ShortcutBadger" src="www/shortcutBadger.js">
+        <clobbers target="window.shortcutBadger" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CordovaShortcutBadger" >
+                <param name="android-package" value="me.leolin.shortcutbadger.CordovaShortcutBadger" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <!--for android-->
+            <!--<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>-->
+            <!--<uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>-->
+            <!--<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />-->
+            <!--<uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />-->
+
+            <!--for Samsung-->
+            <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+            <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+
+            <!--for htc-->
+            <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+            <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+
+            <!--for sony-->
+            <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+            <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+
+            <!--for apex-->
+            <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+
+            <!--for solid-->
+            <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+
+            <!--for huawei-->
+            <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+            <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+            <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+
+            <!--for ZUK-->
+            <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+
+            <!--for OPPO-->
+            <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+            <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+
+            <!--for EvMe-->
+            <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+            <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+        </config-file>
+        <source-file src="src/android/Badger.java" target-dir="src/me/leolin/shortcutbadger/" />
+        <source-file src="src/android/CordovaShortcutBadger.java" target-dir="src/me/leolin/shortcutbadger/" />
+        <source-file src="src/android/ShortcutBadgeException.java" target-dir="src/me/leolin/shortcutbadger/" />
+        <source-file src="src/android/ShortcutBadger.java" target-dir="src/me/leolin/shortcutbadger/" />
+        <source-file src="src/android/impl/AdwHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/ApexHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/AsusHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/DefaultBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/EverythingMeHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/HuaweiHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/LGHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/NewHtcHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/NovaHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/OPPOHomeBader.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/SamsungHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/SonyHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/VivoHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/XiaomiHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/ZTEHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/impl/ZukHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/util/BroadcastHelper.java" target-dir="src/me/leolin/shortcutbadger/util" />
+        <source-file src="src/android/util/CloseHelper.java" target-dir="src/me/leolin/shortcutbadger/util" />
+    </platform>
+</plugin>
