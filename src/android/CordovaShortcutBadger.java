@@ -20,9 +20,11 @@ public class CordovaShortcutBadger extends CordovaPlugin {
             int badgeCount = data.getInt(0);
             Context mContext = this.cordova.getActivity().getApplicationContext();
             ShortcutBadger.applyCount(mContext, badgeCount);
+            callbackContext.success();
         } else if (REMOVE_ACTION.equals(action)) {
             Context mContext = this.cordova.getActivity().getApplicationContext();
             ShortcutBadger.removeCount(mContext);
+            callbackContext.success();
         }
         return true;
     }
